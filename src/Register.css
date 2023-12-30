@@ -47,9 +47,16 @@
     
     button{
       width: 100px;
+      height: 35px;
+      margin: 0 auto;
+      transition: width 0.3s ease;
+    }
+
+    button:hover{
+      width: 135px;
+      height: 35px;
       margin: 0 auto;
     }
-  
   }
   
   .space{
