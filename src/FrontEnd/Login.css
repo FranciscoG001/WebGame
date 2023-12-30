@@ -1,9 +1,12 @@
 .App {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #77afe3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('../../images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .App-Login {
@@ -38,11 +41,26 @@
     font-weight: bold;
   }
 
-  /* Estilizando o container da label e input */
   .form-group {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
+  }
+
+  .input-group {
+    position: relative;
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 70px;
+  }
+
+  .input-group input {
+    padding-left: 40px;
   }
   
   button{
@@ -98,7 +116,7 @@
 .button-17 {
   align-items: center;
   appearance: none;
-  background-color: #afcbf0;
+  background-color: #a98cf0;
   border-radius: 24px;
   border-style: none;
   box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
@@ -130,8 +148,8 @@
 }
 
 .button-17:hover {
-  background: #F6F9FE;
-  color: #174ea6;
+  background: #9868f0;
+  color: #fff;
 }
 
 .button-17:active {

@@ -69,25 +69,37 @@ const Register = () => {
         <form action="" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="username">Username</label>
-            <input type="text" id="username" name="username" onChange={handleInputChange} />
+            <div className="input-group">
+              <i className="fa fa-user icon"></i>
+              <input type="text" id="username" name="username" onChange={handleInputChange} />
+            </div>
             {errors.username && <span className="text-danger">{errors.username}</span>}
           </div>
 
           <div className="form-group">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" onChange={handleInputChange} />
+            <div className="input-group">
+              <i className="fa fa-envelope icon envelope-icon"></i>
+              <input type="email" id="email" name="email" onChange={handleInputChange} />
+            </div>
             {errors.email && <span className="text-danger">{errors.email}</span>}
           </div>
 
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" name="password" onChange={handleInputChange} />
+            <div className="input-group">
+              <i className="fa fa-lock icon"></i>
+              <input type="password" id="password" name="password" onChange={handleInputChange} />
+            </div>
             {errors.password && <span className="text-danger">{errors.password}</span>}
           </div>
 
           <div className="form-group">
             <label htmlFor="confPassword">Confirm Password</label>
-            <input type="password" id="confPassword" name="confPassword" onChange={handleInputChange} />
+            <div className="input-group">
+              <i className="fa fa-lock icon"></i>
+              <input type="password" id="confPassword" name="confPassword" onChange={handleInputChange} />
+            </div>
             {errors.confPassword && <span className="text-danger">{errors.confPassword}</span>}          
           </div>
 
