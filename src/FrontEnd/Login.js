@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import Validation from '../Backend/LoginValidations';
+import axios from 'axios'
 
-function App() {
+function Login() {
 
   const [values, setValues] = useState({
     username: '',
     password: '',
+    warning: ''
   });
 
   const [errors, setErrors] = useState({})
+
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
@@ -20,11 +24,26 @@ function App() {
     event.preventDefault();
     const validationErrors = Validation(values);
     setErrors(validationErrors);
-  
-    // Se não houver erros, continue com o envio ou outra lógica
+
     if (Object.keys(validationErrors).length === 0) {
-      console.log('Formulário enviado com sucesso!');
+      axios.post('http://localhost:3001/login', values)
+        .then(res => {
+          if(res.data === "Success"){
+            navigate('/home');
+          }else{
+            const updatedErrors = {
+              warning: "Incorrect username or password!",
+            };
+            setErrors(updatedErrors, () => {
+            });
+          }
+          
+        }).catch(err => console.log(err.response));
     }
+  };
+
+  const spaceStyle = {
+    marginBottom: errors.warning ? '15px' : '25px',
   };
 
   return (
@@ -46,7 +65,11 @@ function App() {
             {errors.password && <span className="text-danger">{errors.password}</span>}
           </div>
 
-          <div className="space"></div>
+          <div className="warning-label">
+            {errors.warning && <span className="text-danger-warning">{errors.warning}</span>}
+          </div>
+
+          <div className="space" style={spaceStyle}></div>
 
           <div className="form-group">
             <button className="button-17" type="submit">Login</button>
@@ -63,4 +86,4 @@ function App() {
   );
 }
 
-export default App;
+export default Login;

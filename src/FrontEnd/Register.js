@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
 import Validation from '../Backend/RegisterValidation';
+import axios from 'axios'
 
 const Register = () => {
   const [values, setValues] = useState({
@@ -13,6 +14,8 @@ const Register = () => {
 
   const [errors, setErrors] = useState({})
 
+  const navigate = useNavigate();
+
   const handleInputChange = (event) => {
     setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
   };
@@ -21,10 +24,39 @@ const Register = () => {
     event.preventDefault();
     const validationErrors = Validation(values);
     setErrors(validationErrors);
-  
-    // Se não houver erros, continue com o envio ou outra lógica
+
     if (Object.keys(validationErrors).length === 0) {
-      console.log('Formulário enviado com sucesso!');
+      axios.post('http://localhost:3001/register', values)
+        .then(res => {
+          if (res.data === "Warning-3") {
+            const updatedErrors = {
+              username: "Username already in use!",
+              email: "Email already in use!",
+            };
+            setErrors(updatedErrors, () => {
+            });
+          } 
+          else if (res.data === "Warning-2") {
+            const updatedErrors = {
+              email: "Email already in use!"
+            };
+            setErrors(updatedErrors, () => {
+            });
+          } 
+          else if (res.data === "Warning-1") {
+            const updatedErrors = {
+              username: "Username already in use!"
+            };
+            setErrors(updatedErrors, () => {
+
+            });
+          } 
+          else 
+          {
+            navigate('/');
+          }
+          
+        }).catch(err => console.log(err.response));
     }
   };
 

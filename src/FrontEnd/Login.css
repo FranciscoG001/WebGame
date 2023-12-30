@@ -61,10 +61,15 @@
   .text-danger{
     color: red;
   }
+
+  .text-danger-warning{
+    color: red;
+    padding-bottom: -10px;
+  }
 }
 
 .space{
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .register-label a {

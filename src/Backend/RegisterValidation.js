@@ -17,6 +17,11 @@ function Validation(values){
         error.confPassword = "ConfPassword cannot be empty"
     }
 
+    if(values.password !== values.confPassword){
+        error.password = "Passwords does not match!"
+        error.confPassword = "Passwords does not match!"
+    }
+
     return error;
 }
 
