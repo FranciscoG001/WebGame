@@ -23,10 +23,9 @@ const Register = () => {
     setErrors(validationErrors);
   
     // Se não houver erros, continue com o envio ou outra lógica
-    //if (Object.keys(validationErrors).length === 0) {
-      // Lógica para continuar com o envio ou outra coisa
-      //console.log('Formulário enviado com sucesso!');
-    //}
+    if (Object.keys(validationErrors).length === 0) {
+      console.log('Formulário enviado com sucesso!');
+    }
   };
 
   return (
