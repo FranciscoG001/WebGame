@@ -26,18 +26,26 @@ function Login() {
     const validationErrors = Validation(values);
     setErrors(validationErrors);
 
+ 
     if (Object.keys(validationErrors).length === 0) {
       axios.post('http://localhost:3001/login', values)
         .then(res => {
           if(res.data === "Success"){
             navigate('/home');
-          }else{
+          }else if(res.data === "Fail"){
             const updatedErrors = {
               warning: "Incorrect username or password!",
             };
             setErrors(updatedErrors, () => {
             });
+          }else if(res.data === "Error"){
+            const updatedErrors = {
+              warning: "Something went wrong, please try again!",
+            };
+            setErrors(updatedErrors, () => {
+            });
           }
+          
           
         }).catch(err => console.log(err.response));
     }
