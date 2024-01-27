@@ -26,7 +26,7 @@ app.post('/register', async (req,res) => {
                 if (checkErr) {
                     reject("Erro-1");
                 }
-            
+
                 if (checkResult.length > 0) {
                     resolve("Warning-1");
                 } else {

@@ -1,25 +1,26 @@
 function Validation(values){
     let error = {}
 
-    if(values.email === ""){
-        error.email = "Email cannot be empty"
+    if(values.email === "" || values.username === "" || values.password === "" || values.confPassword === ""){
+        error.warning = "Please fill all values"
     }
-
-    if(values.username === ""){
-        error.username = "Username cannot be empty"
+    else if(values.email === ""){
+        error.warning = "Email can't be empty"
     }
-
-    if(values.password === ""){
-        error.password = "Password cannot be empty"
+    else if(values.username === ""){
+        error.warning = "Username can't be empty"
     }
-
-    if(values.confPassword === ""){
-        error.confPassword = "ConfPassword cannot be empty"
+    else if(values.password === ""){
+        error.warning = "Password can't be empty"
     }
-
-    if(values.password !== values.confPassword){
-        error.password = "Passwords does not match!"
-        error.confPassword = "Passwords does not match!"
+    else if(values.confPassword === ""){
+        error.warning = "ConfPassword can't be empty"
+    }
+    else if(values.password.length < 7 || values.password.length > 16){
+        error.warning = "Password must have between 8-16 characters"
+    }
+    else if(values.password !== values.confPassword && values.email !== "" && values.username !== "" && values.password !== ""){
+        error.warning = "Passwords doesn't match"
     }
 
     return error;

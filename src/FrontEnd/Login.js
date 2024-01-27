@@ -26,10 +26,11 @@ function Login() {
     const validationErrors = Validation(values);
     setErrors(validationErrors);
 
- 
+    console.log(validationErrors)
     if (Object.keys(validationErrors).length === 0) {
       axios.post('http://localhost:3001/login', values)
         .then(res => {
+          console.log(res.data)
           if(res.data === "Success"){
             navigate('/home');
           }else if(res.data === "Fail"){

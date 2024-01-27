@@ -90,6 +90,11 @@
     .input-group input {
       padding-left: 40px;
     }
+
+    .text-danger-warning{
+      color: red;
+      padding-bottom: -10px;
+    }
   }
   
   .space{

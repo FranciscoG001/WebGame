@@ -64,7 +64,7 @@ const Register = () => {
     <div className="App">
       <div className="App-Register">
         <div className="logo">
-          <p>New account</p>
+          <p>Register</p>
         </div>
         <form action="" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -73,7 +73,6 @@ const Register = () => {
               <i className="fa fa-user icon"></i>
               <input type="text" id="username" name="username" onChange={handleInputChange} />
             </div>
-            {errors.username && <span className="text-danger">{errors.username}</span>}
           </div>
 
           <div className="form-group">
@@ -82,7 +81,6 @@ const Register = () => {
               <i className="fa fa-envelope icon envelope-icon"></i>
               <input type="email" id="email" name="email" onChange={handleInputChange} />
             </div>
-            {errors.email && <span className="text-danger">{errors.email}</span>}
           </div>
 
           <div className="form-group">
@@ -91,7 +89,6 @@ const Register = () => {
               <i className="fa fa-lock icon"></i>
               <input type="password" id="password" name="password" onChange={handleInputChange} />
             </div>
-            {errors.password && <span className="text-danger">{errors.password}</span>}
           </div>
 
           <div className="form-group">
@@ -99,9 +96,12 @@ const Register = () => {
             <div className="input-group">
               <i className="fa fa-lock icon"></i>
               <input type="password" id="confPassword" name="confPassword" onChange={handleInputChange} />
-            </div>
-            {errors.confPassword && <span className="text-danger">{errors.confPassword}</span>}          
+            </div>      
           </div>
+
+          <div className="warning-label">
+              {errors.warning && <span className="text-danger-warning">{errors.warning}</span>}
+            </div>
 
           <div className="space"></div>
 
