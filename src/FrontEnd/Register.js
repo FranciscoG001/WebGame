@@ -71,7 +71,7 @@ const Register = () => {
             <label htmlFor="username">Username</label>
             <div className="input-group">
               <i className="fa fa-user icon"></i>
-              <input type="text" id="username" name="username" onChange={handleInputChange} />
+              <input type="text" id="username" name="username" onChange={handleInputChange} autocomplete="off"/>
             </div>
           </div>
 
@@ -79,7 +79,7 @@ const Register = () => {
             <label htmlFor="email">Email</label>
             <div className="input-group">
               <i className="fa fa-envelope icon envelope-icon"></i>
-              <input type="email" id="email" name="email" onChange={handleInputChange} />
+              <input type="email" id="email" name="email" onChange={handleInputChange} autocomplete="off"/>
             </div>
           </div>
 
@@ -87,7 +87,7 @@ const Register = () => {
             <label htmlFor="password">Password</label>
             <div className="input-group">
               <i className="fa fa-lock icon"></i>
-              <input type="password" id="password" name="password" onChange={handleInputChange} />
+              <input type="password" id="password" name="password" onChange={handleInputChange} autocomplete="off"/>
             </div>
           </div>
 
@@ -95,7 +95,7 @@ const Register = () => {
             <label htmlFor="confPassword">Confirm Password</label>
             <div className="input-group">
               <i className="fa fa-lock icon"></i>
-              <input type="password" id="confPassword" name="confPassword" onChange={handleInputChange} />
+              <input type="password" id="confPassword" name="confPassword" onChange={handleInputChange} autocomplete="off"/>
             </div>      
           </div>
 
@@ -110,7 +110,7 @@ const Register = () => {
           </div>
 
           <div className="register-label">
-            <Link to="/">
+            <Link to="/login">
               Already have an account!
             </Link>
           </div>

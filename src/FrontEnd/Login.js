@@ -68,7 +68,7 @@ function Login() {
               <label htmlFor="username">Username</label>
               <div className="input-group">
                 <i className="fa fa-user icon"></i>
-                <input type="text" id="username" name="username" onChange={handleInputChange} />
+                <input type="text" id="username" name="username" onChange={handleInputChange} autocomplete="off"/>
               </div>
               {errors.username && <span className="text-danger">{errors.username}</span>}
             </div>
@@ -77,7 +77,7 @@ function Login() {
               <label htmlFor="password">Password</label>
               <div className="input-group">
                 <i className="fa fa-lock icon"></i>
-                <input type="password" id="password" name="password" onChange={handleInputChange}/>
+                <input type="password" id="password" name="password" onChange={handleInputChange} autocomplete="off"/>
               </div>
               {errors.password && <span className="text-danger">{errors.password}</span>}
             </div>
