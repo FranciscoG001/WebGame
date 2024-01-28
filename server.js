@@ -9,8 +9,9 @@ app.use(express.json());
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
-    database: "batheo"
+    password: "12345",
+    database: "batheo",
+    port: 3306
 })
 
 app.listen(3001, ()=>{
@@ -20,6 +21,7 @@ app.listen(3001, ()=>{
 app.post('/register', async (req,res) => {
     const checkDuplicateQuery = "SELECT * FROM user WHERE username = ?";
     const checkDuplicateQuery2 = "SELECT * FROM user WHERE email = ?";
+
     const result = await Promise.all([
         new Promise((resolve, reject) => {
             db.query(checkDuplicateQuery, [req.body.username], (checkErr, checkResult) => {
@@ -75,6 +77,7 @@ app.post('/register', async (req,res) => {
 
 app.post('/login', (req,res) => {
     const sql = "SELECT * FROM user WHERE `username` = ? AND `password` = ?";
+    
     db.query(sql, [req.body.username,req.body.password], (err,data) => {
         if(err){
             return res.json("Error");
