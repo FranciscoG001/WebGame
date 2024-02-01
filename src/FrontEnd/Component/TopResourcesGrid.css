@@ -1,0 +1,47 @@
+.GridContainerResources {
+    display: grid;
+    grid-template-columns: repeat(1, 22.7vh);
+    grid-gap: 0.56vh;
+    position: fixed;
+    top: 3.97vh;
+    left: 15.32vh;
+}
+
+.GridItemResources{
+    width: 28.37vh;
+    height: 4.1vh;
+    background-color: #37dd5b; 
+    border-radius: 0.56vh; 
+}
+
+.GridContainerResources2 {
+    display: grid;
+    grid-template-columns: repeat(1, 22.7vh);
+    grid-gap: 0.56vh;
+    position: fixed;
+    top: 3.97vh;
+    left: 44.26vh;
+}
+
+.GridItemResources2{
+    width: 22.7;
+    height: 4.1vh;
+    background-color: #31693d; 
+    border-radius: 0.56vh; 
+}
+
+.GridContainerResources3 {
+    display: grid;
+    grid-template-columns: repeat(1, 22.70vh);
+    grid-gap: 0.56vh;
+    position: fixed;
+    top: 3.97vh;
+    left: 67.43vh;
+}
+
+.GridItemResources3 {
+    width: 19.29vh;
+    height: 4.1vh;
+    background-color: #abd6b4; 
+    border-radius: 0.56vh; 
+}

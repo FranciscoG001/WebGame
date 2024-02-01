@@ -1,0 +1,36 @@
+.GridContainerMenus {
+    display: grid;
+    grid-template-columns: repeat(4, 6.81vh);
+    grid-gap: 1.13vh;
+    position: fixed;
+    bottom: 3.97vh;
+    right: 30.21vh;
+}
+  
+.GridItem1 {
+    width: 6.81vh;
+    height: 6.81vh;
+    background-color: #37dd5b; 
+    border-radius: 0.56vh; 
+}
+
+.GridItem2 {
+    width: 6.81vh;
+    height: 6.81vh;
+    background-color: #37dd5b; 
+    border-radius: 0.56vh; 
+}
+
+.GridItem3 {
+    width: 6.81vh;
+    height: 6.81vh;
+    background-color: #37dd5b; 
+    border-radius: 0.56vh; 
+}
+
+.GridItem4 {
+    width: 6.81vh;
+    height: 6.81vh;
+    background-color: #37dd5b; 
+    border-radius: 0.56vh; 
+}

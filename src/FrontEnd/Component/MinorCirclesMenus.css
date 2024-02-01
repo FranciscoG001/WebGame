@@ -1,0 +1,29 @@
+.Minorcircle1{
+    width: 6.81vh;
+    height: 6.81vh;
+    background-color: purple;
+    border-radius: 50%; 
+    position: fixed;
+    bottom: 1.13vh;
+    right: 17.29vh;
+}
+
+.Minorcircle2{
+    width: 6.81vh;
+    height: 6.81vh;
+    background-color: rgb(202, 148, 202);
+    border-radius: 50%; 
+    position: fixed;
+    bottom: 8.53vh;
+    right: 18.5vh;
+}
+
+.Minorcircle3{
+    width: 6.81vh;
+    height: 6.81vh;
+    background-color: rgb(206, 33, 206);
+    border-radius: 50%; 
+    position: fixed;
+    bottom: 15.5vh;
+    right: 15vh;
+}
