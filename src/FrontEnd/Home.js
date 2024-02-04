@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Home.css';
 import './Component/Dialogs.css';
 import './Component/TopResourcesGrid.css'
@@ -6,8 +7,58 @@ import './Component/BottomMenusGrid.css'
 import './Component/MinorCirclesMenus.css'
 
 function Home() {
+    const [isShown, setIsShown] = useState(false);
+    const [messages, setMessages] = useState([]);
+    const inputRef = useRef(null);
+
+    const location = useLocation();
+    const { state } = location;
+    const username = state ? state.username : '';
+
+    const handleClick = event => {
+        setIsShown(true);
+    };
+
+    const handleClickSend = () => {
+        const message = inputRef.current.value;
+    
+        if (message.trim() !== '') {
+            const completeMessage = (
+                <span>
+                    <span className="UsernameText">{username}:</span> {message}
+                </span>
+              );
+            setMessages([...messages, completeMessage]);
+
+            inputRef.current.value = '';
+
+            //Clear chat
+            setTimeout(() => {
+                setMessages((prevMessages) => {
+                    const updatedMessages = prevMessages.slice(1);
+                    return updatedMessages;
+                });
+            }, 10000);
+        }
+    }
 
     useEffect(() => {
+        
+        document.addEventListener('click', (event) => {
+            const writeChatElement = document.querySelector(".WriteChat");
+            const SendChatElement = document.querySelector(".SendChat");
+            const ShowChatElement = document.querySelector(".ShowChat");
+            const ChatElement = document.querySelector(".Chat");
+          
+            if (
+                (writeChatElement && writeChatElement.contains(event.target)) ||
+                (SendChatElement && SendChatElement.contains(event.target)) ||
+                (ShowChatElement && ShowChatElement.contains(event.target)) ||
+                (ChatElement && ChatElement.contains(event.target))
+            ){} 
+            else 
+                setIsShown(false);
+        });
 
         const dialogs = [
             { trigger: document.querySelector(".GridItem1"), dialog: document.querySelector(".dialog.menu1") },
@@ -64,7 +115,11 @@ function Home() {
     return (
         <div className="HomePage">
             {/* Top page */}
-            <div className="City"></div>
+            <div className="City">
+                <div className="UserText">
+                    {username}
+                </div>
+            </div>
 
             <div className="GridContainerResources">
                 <div className="GridItemResources"></div>
@@ -93,7 +148,17 @@ function Home() {
 
             <div className="Season"></div>
 
+            {/* Chat */}
+            <input className="WriteChat" onClick={handleClick} ref={inputRef}></input>
+            <button className="SendChat" onClick={handleClickSend}>--></button>
             <div className="Chat"></div>
+            {isShown && (
+                <div className="ShowChat">
+                    {messages.map((message, index) => (
+                        <div key={index}>{message}</div>
+                    ))}
+                </div>
+            )}
 
             {/* Dialogs */}
             <dialog className="dialog menu1">

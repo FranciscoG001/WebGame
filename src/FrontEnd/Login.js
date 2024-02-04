@@ -30,9 +30,9 @@ function Login() {
     if (Object.keys(validationErrors).length === 0) {
       axios.post('http://localhost:3001/login', values)
         .then(res => {
-          console.log(res.data)
           if(res.data === "Success"){
-            navigate('/home');
+            const username = values.username;
+            navigate('/home', { state: { username } });
           }else if(res.data === "Fail"){
             const updatedErrors = {
               warning: "Incorrect username or password!",

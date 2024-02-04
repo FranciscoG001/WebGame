@@ -1,12 +1,19 @@
 require('dotenv').config();
 
 const express = require('express');
+const session = require('express-session');
 const mysql = require('mysql');
 const cors = require('cors');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true
+}));
 
 const db = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -86,10 +93,10 @@ app.post('/login', (req,res) => {
         }
 
         if(data.length > 0){
+            req.session.username = req.body.username;
             return res.json("Success");
         }else{
             return res.json("Fail");
         }
     })
 })
-

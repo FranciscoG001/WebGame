@@ -23,12 +23,66 @@
     z-index: 1;
 }
 
+.UserText {
+    color: #fff;
+    z-index: 2;  /* Um valor maior que o z-index da .City para que o texto fique acima do círculo */
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Ajusta o centro com base no tamanho do texto */
+}
+
+@media (max-width: 768px) {
+    .UserText {
+        top: 5vh;
+        left: 5vh;
+    }
+}
+
+.UsernameText{
+    color:rgb(223, 32, 32);
+}
+
 .Chat{
     width: 34.05vh;
-    height: 4.54vh;
+    height: 3.54vh;
     background-color: rgb(255, 123, 0); 
     position: fixed;
     border-radius: 0.56vh;
     bottom: 2.5vh;
     left: 2.27vh;
+    z-index: 1;
+}
+
+.SendChat{
+    width: 4vh;
+    height: 2.7vh;
+    border-radius: 0.56vh;
+    position: fixed;
+    bottom: 2.9vh;
+    left: 31.9vh;
+    z-index: 2;
+}
+
+.WriteChat{
+    width: 27.2vh;
+    height: 2vh;
+    position: fixed;
+    bottom: 2.9vh;
+    left: 2.9vh;
+    border-radius: 0.56vh;
+    z-index: 2;
+}
+
+.ShowChat{
+    background-color: rgb(0, 0, 0, 0.2);
+    position: fixed;
+    width: 30.05vh;
+    height: 25vh;
+    border-radius: 0.56vh;
+    bottom: 2.5vh;
+    left: 2.27vh;
+    color:#fff;
+    padding: 2vh;
+    padding-bottom: 4.5vh;
 }
